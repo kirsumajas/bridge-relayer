@@ -1,0 +1,23 @@
+{
+  "name": "rust-relayer",
+  "version": "1.0.0",
+  "description": "Rust async relayer that watches TON & Solana, builds Borsh attestations, signs, and submits.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kirsumajas/bridge-relayer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kirsumajas/bridge-relayer/issues"
+  },
+  "homepage": "https://github.com/kirsumajas/bridge-relayer#readme",
+  "dependencies": {
+    "tweetnacl": "^1.0.3"
+  }
+}

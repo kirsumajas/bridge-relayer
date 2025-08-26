@@ -1,17 +1,16 @@
 use anyhow::{anyhow, Result};
-use std::time::{SystemTime, UNIX_EPOCH};
 
 pub fn hex32(hexstr: &str) -> Result<[u8; 32]> {
-    let s = hexstr.trim_start_matches("0x");
-    let v = hex::decode(s)?;
-    if v.len() != 32 {
-        return Err(anyhow!("expected 32 bytes, got {}", v.len()));
-    }
-    let mut a = [0u8; 32];
-    a.copy_from_slice(&v);
-    Ok(a)
+    let mut out = [0u8; 32];
+    let v = hex::decode(hexstr.trim())?;
+    if v.len() != 32 { return Err(anyhow!("expected 32 bytes")); }
+    out.copy_from_slice(&v);
+    Ok(out)
 }
 
 pub fn now_ts() -> u64 {
-    SystemTime::now().duration_since(UNIX_EPOCH).unwrap().as_secs()
+    (std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .unwrap()
+        .as_secs()) as u64
 }

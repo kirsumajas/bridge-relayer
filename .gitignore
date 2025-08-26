@@ -2,3 +2,6 @@
 /.vscode
 **/*.rs.bk
 .DS_Store
+.env
+/relayer.json
+/node_modules
